@@ -5,10 +5,6 @@ helm:
   chart: elasticsearch
   values:
     replicas: 1
-    persistence:
-      enabled: true
-      storageClass: longhorn
-      size: 10Gi
     service:
       type: NodePort
       ports:
