@@ -3,6 +3,5 @@ helm:
   releaseName: kibana
   repo: https://helm.elastic.co
   chart: kibana
-  version: 8.12.1  # Check latest version
   valuesFiles:
     - values.yaml
