@@ -3,9 +3,8 @@ helm:
   releaseName: elasticsearch
   repo: https://helm.elastic.co
   chart: elasticsearch
-  version: 8.5.1
   values:
-    replicas: 1  # Single-node deployment
+    replicas: 1
     persistence:
       enabled: true
       storageClass: longhorn
@@ -24,4 +23,8 @@ helm:
         value: "single-node"
     xpack:
       security:
+        enabled: false
+      monitoring:
+        enabled: false
+      ml:
         enabled: false
