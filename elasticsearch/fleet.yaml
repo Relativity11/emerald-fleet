@@ -1,0 +1,8 @@
+defaultNamespace: elastic-system
+helm:
+  releaseName: elasticsearch
+  repo: https://helm.elastic.co
+  chart: elasticsearch
+  version: 8.12.1  # Check latest version with `helm search repo elastic/elasticsearch`
+  valuesFiles:
+    - values.yaml

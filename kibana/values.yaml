@@ -1,0 +1,24 @@
+elasticsearchHosts: "http://elasticsearch:9200"
+
+replicas: 1
+
+service:
+  type: NodePort
+  ports:
+    - name: http
+      port: 5601
+      targetPort: 5601
+
+resources:
+  requests:
+    memory: "2Gi"
+    cpu: "1000m"
+  limits:
+    memory: "4Gi"
+    cpu: "2000m"
+
+extraEnvs:
+  - name: SERVER_MAXPAYLOAD
+    value: "50mb"
+  - name: ELASTICSEARCH_REQUESTTIMEOUT
+    value: "200000"
