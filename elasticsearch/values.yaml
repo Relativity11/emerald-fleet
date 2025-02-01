@@ -1,7 +1,5 @@
 clusterName: "elastic-cluster"
-
 replicas: 1
-
 persistence:
   enabled: true
   storageClass: longhorn
@@ -21,23 +19,15 @@ service:
     - name: http
       port: 9200
       targetPort: 9200
-      nodePort: 32092
     - name: transport
       port: 9300
       targetPort: 9300
-      nodePort: 32093
 
 extraEnvs:
-  - name: xpack.security.enabled
-    value: "false"
   - name: discovery.type
     value: "single-node"
 
-extraObjects:
-  - apiVersion: v1
-    kind: Secret
-    metadata:
-      name: elasticsearch-master-certs
-      namespace: elastic-system
-    type: Opaque
-    data: {}
+# Disable security & TLS to avoid missing cert errors
+xpack:
+  security:
+    enabled: false
