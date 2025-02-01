@@ -3,5 +3,15 @@ helm:
   releaseName: kibana
   repo: https://helm.elastic.co
   chart: kibana
-  valuesFiles:
-    - values.yaml
+  version: 8.5.1
+  values:
+    replicas: 1
+    service:
+      type: NodePort
+      ports:
+        - name: http
+          port: 5601
+          nodePort: 32002
+    extraEnvs:
+      - name: ELASTICSEARCH_HOSTS
+        value: "http://elasticsearch:9200"

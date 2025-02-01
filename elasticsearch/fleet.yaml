@@ -3,5 +3,25 @@ helm:
   releaseName: elasticsearch
   repo: https://helm.elastic.co
   chart: elasticsearch
-  valuesFiles:
-    - values.yaml
+  version: 8.5.1
+  values:
+    replicas: 1  # Single-node deployment
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      size: 10Gi
+    service:
+      type: NodePort
+      ports:
+        - name: http
+          port: 9200
+          nodePort: 32000
+        - name: transport
+          port: 9300
+          nodePort: 32001
+    extraEnvs:
+      - name: discovery.type
+        value: "single-node"
+    xpack:
+      security:
+        enabled: false
