@@ -8,6 +8,7 @@ service:
     - name: http
       port: 5601
       targetPort: 5601
+      nodePort: 32056
 
 resources:
   requests:
@@ -22,3 +23,12 @@ extraEnvs:
     value: "50mb"
   - name: ELASTICSEARCH_REQUESTTIMEOUT
     value: "200000"
+
+extraObjects:
+  - apiVersion: v1
+    kind: Secret
+    metadata:
+      name: elasticsearch-master-certs
+      namespace: elastic-system
+    type: Opaque
+    data: {}
