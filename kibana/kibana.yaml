@@ -3,7 +3,6 @@ kind: Kibana
 metadata:
   name: quickstart
 spec:
-  version: 8.17.1  # Keep this to ensure version consistency
   count: 1
   elasticsearchRef:
     name: quickstart
