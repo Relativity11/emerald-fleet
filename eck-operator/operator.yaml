@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eck-operator
+  namespace: elastic-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      control-plane: elastic-operator
+  template:
+    metadata:
+      labels:
+        control-plane: elastic-operator
+    spec:
+      containers:
+        - name: manager
+          image: docker.elastic.co/eck/eck-operator:2.16.1

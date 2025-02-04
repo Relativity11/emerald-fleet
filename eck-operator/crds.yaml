@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: elastic-crds-job
+  namespace: elastic-system
+spec:
+  template:
+    spec:
+      containers:
+        - name: apply-crds
+          image: bitnami/kubectl
+          command:
+            - "/bin/sh"
+            - "-c"
+            - "kubectl apply -f https://download.elastic.co/downloads/eck/2.16.1/crds.yaml"
+      restartPolicy: Never
+  backoffLimit: 1

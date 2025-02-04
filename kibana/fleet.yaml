@@ -3,7 +3,6 @@ helm:
   releaseName: kibana
   repo: https://helm.elastic.co
   chart: kibana
-  version: 8.5.1
   values:
     replicas: 1
     service:
