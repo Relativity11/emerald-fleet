@@ -3,7 +3,8 @@ kind: Kibana
 metadata:
   name: quickstart
 spec:
-  version: 8.17.1
   count: 1
   elasticsearchRef:
     name: quickstart
+  config:
+    elasticsearch.hosts: ["http://elasticsearch-master:9200"]
