@@ -3,7 +3,6 @@ helm:
   releaseName: elasticsearch
   repo: https://helm.elastic.co
   chart: elasticsearch
-  version: 8.17.1
   values:
     nodeSets:
       - name: default
