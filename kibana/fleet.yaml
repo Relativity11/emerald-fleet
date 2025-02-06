@@ -13,4 +13,4 @@ helm:
           nodePort: 32002
     extraEnvs:
       - name: ELASTICSEARCH_HOSTS
-        value: "http://elasticsearch:9200"
+        value: "http://elasticsearch-master:9200"
