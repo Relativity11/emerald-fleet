@@ -1,6 +1,0 @@
-defaultNamespace: elastic-system
-helm:
-  releaseName: eck-operator
-  repo: https://helm.elastic.co
-  chart: eck-operator
-  version: 2.16.1
